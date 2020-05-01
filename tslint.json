@@ -82,7 +82,7 @@
     "no-conflicting-lifecycle": true,
     "no-output-native": true,
     "directive-selector": [
-      true,
+      false,
       "attribute",
       "app",
       "camelCase"

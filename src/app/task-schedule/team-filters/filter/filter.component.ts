@@ -13,13 +13,31 @@ import { Member } from '@core/model/member';
 })
 export class FilterComponent {
 
-  @Input() team: Team;
+  private _team: Team;
+  private _state: 'UNCHECKED' | 'INDETERMINATE' | 'CHECKED';
 
   constructor(private store: Store<AppState>) { }
 
-  isChecked() {
+  @Input()
+  set team(value: Team) {
+    this._team = value;
     const members: Member[] = Object.values(this.team.members);
-    return members.some(member => member.isSelected);
+    const selectedMembers = members.filter(member => member.isSelected);
+    if (selectedMembers.length === 0){
+      this._state = 'UNCHECKED';
+    } else if (selectedMembers.length < members.length) {
+      this._state = 'INDETERMINATE';
+    } else {
+      this._state = 'CHECKED';
+    }
+  }
+
+  get team() {
+    return this._team;
+  }
+
+  get state() {
+    return this._state;
   }
 
   onTeamFilterChange(value: boolean) {
