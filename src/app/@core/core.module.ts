@@ -4,13 +4,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from '@core/services/api/api.service';
+import { StoreModule } from '@ngrx/store';
+import { RootStoreModule } from '@core/root-store/root-store.module';
 
 @NgModule({
   imports: [
     CommonModule,
     HttpClientModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    RootStoreModule
   ],
   providers: [
     ApiService

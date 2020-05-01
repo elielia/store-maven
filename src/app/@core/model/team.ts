@@ -4,6 +4,6 @@ export interface Team {
   id: string;
   name: string;
   members: {
-    [id: string]: Member
-  }
+    [id: string]: Member;
+  };
 }

@@ -5,10 +5,17 @@ import { RouterModule } from '@angular/router';
 import { appRoutes } from '@app/routes';
 import { ShellModule } from '@app/shell/shell.module';
 import { CoreModule } from '@core/core.module';
-import { HomeModule } from '@app/home/home.module';
+import { TaskScheduleModule } from '@app/task-schedule/task-schedule.module';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
-  imports: [BrowserModule, CoreModule, ShellModule, HomeModule, RouterModule.forRoot(appRoutes)],
+  imports: [
+    BrowserModule,
+    CoreModule,
+    ShellModule,
+    TaskScheduleModule,
+    RouterModule.forRoot(appRoutes),
+  ],
   declarations: [AppComponent],
   providers: [],
   bootstrap: [AppComponent],
