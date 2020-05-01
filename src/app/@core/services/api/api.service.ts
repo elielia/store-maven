@@ -77,7 +77,7 @@ export class ApiService {
   private generateRandomTask(): Task {
 
     const enumValues = (Object.values(TaskType) as unknown) as TaskType[];
-    const randomTaskType: TaskType = enumValues[Utils.randomIntFromInterval(1,4)];
+    const randomTaskType: TaskType = enumValues[Utils.randomIntFromInterval(1,4) - 1];
     return {
       name: 'task-' + Utils.randomIntFromInterval(1, 10000),
       type: randomTaskType
