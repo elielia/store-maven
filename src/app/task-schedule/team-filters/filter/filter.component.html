@@ -1,0 +1,4 @@
+<div class="filter-container d-inline-block p-3">
+    <input type="checkbox" class="mr-2" [ngModel]="isChecked()" (ngModelChange)="onTeamFilterChange($event)"/>
+    <span class="font-weight-bold">{{team.name}}</span>
+</div>

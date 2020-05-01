@@ -1,5 +1,13 @@
 <div class="container" *ngIf="team$ | async as teams">
-    <div class="d-flex">
-        <span class="spinner-border m-auto" *ngIf="teams.state == loadingState.Loading"></span>
+
+    <div class="d-flex" *ngIf="teams.state == loadingState.Loading">
+        <span class="spinner-border m-auto"></span>
     </div>
+
+    <ng-container *ngIf="teams.state == loadingState.Loaded">
+        <div class="border-bottom">
+            <app-team-filter></app-team-filter>
+        </div>
+        <app-task-list></app-task-list>
+    </ng-container>
 </div>

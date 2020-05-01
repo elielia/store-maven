@@ -12,7 +12,6 @@ import { RootStoreModule } from '@core/root-store/root-store.module';
     CommonModule,
     HttpClientModule,
     NgbModule,
-    FormsModule,
     RootStoreModule
   ],
   providers: [

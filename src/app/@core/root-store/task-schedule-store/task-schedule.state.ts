@@ -3,7 +3,7 @@ import { LoadingState, StatedData } from '@core/model/generics';
 
 export interface TaskScheduleState {
   filterByEmployee: boolean;
-  teams: StatedData<Team[]>;
+  teams: StatedData<{[id: string]: Team}>;
   startDate: Date;
   endDate: Date;
 }

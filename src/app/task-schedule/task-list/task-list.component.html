@@ -1,0 +1,24 @@
+<table *ngIf="teams$ | async as teams">
+<!--    <ng-container *ngFor="let team of teams.data | keyvalue">-->
+<!--        <tr *ngFor="let memberEntry of team.value.members | keyvalue">-->
+<!--            <ng-container *ngIf="{value: filterByEmployee$ | async} as filterByEmployeeContext">-->
+<!--                <td *ngIf="filterByEmployeeContext.value">-->
+<!--                    <input type="checkbox" [checked]="memberEntry.value.isSelected">-->
+<!--                </td>-->
+<!--            </ng-container>-->
+<!--            <td>{{memberEntry.key}}</td>-->
+<!--            <td>{{memberEntry.value.name}}</td>-->
+<!--        </tr>-->
+<!--    </ng-container>-->
+
+    <ng-container *ngIf="displayedMembers$ | async as members">
+        <tr *ngFor="let member of members">
+            <ng-container *ngIf="{value: filterByEmployee$ | async} as filterByEmployeeContext">
+                <td *ngIf="filterByEmployeeContext.value">
+                    <input type="checkbox" [ngModel]="member.isSelected" (ngModelChange)="onMemberFilterChange(member.teamId, member.id, $event)">
+                </td>
+            </ng-container>
+            <td>{{member.name}}</td>
+        </tr>
+    </ng-container>
+</table>

@@ -4,35 +4,6 @@ import { Observable, of } from 'rxjs';
 import { Member } from '@core/model/member';
 import { delay } from 'rxjs/operators';
 
-export const teams: Team[] = [
-  {
-    id: 'team-1',
-    name: 'R&D',
-    members: {
-      'member-1': {
-        id: 'member-1',
-        name: 'Lior Abulafia',
-        tasks: null
-      },
-      'member-2': {
-        id: 'member-1',
-        name: 'Abed Hamudi',
-        tasks: null
-      },
-      'member-3': {
-        id: 'member-1',
-        name: 'Adiv Bareket',
-        tasks: null
-      },
-      'member-4': {
-        id: 'member-1',
-        name: 'Adiv Bareket',
-        tasks: null
-      }
-    }
-  }
-]
-
 @Injectable()
 export class ApiService {
 
@@ -41,25 +12,35 @@ export class ApiService {
 
   constructor() {}
 
-  getTeams(): Observable<Team[]> {
+  getTeams(): Observable<{[id: string]: Team}> {
+
+    const teams = {};
+
     for (let i = 0; i < this.numOfTeams; i++) {
 
+      const teamId = `team-${i}`;
+
       const team = {
-        id: `team-${i}`,
-        name: `team-${i}`,
+        id: teamId,
+        name: teamId,
         members: {}
       }
 
       for (let j = 0; j < this.numOfMembers; j++) {
 
         const member: Member = {
-          id: `member-${i}`,
-          name: `member-${i}`,
-          tasks: null
+          id: `team-${i}-member-${j}`,
+          name: `team-${i}-member-${j}`,
+          isSelected: false,
+          tasks: null,
+          teamId
         }
 
-        team[member.id] = member;
+        team.members[member.id] = member;
       }
+
+      teams[team.id] = team;
+
     }
 
     return of(teams).pipe(
