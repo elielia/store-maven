@@ -1,4 +1,4 @@
-<div class="container" *ngIf="team$ | async as teams">
+<div class="container" *ngIf="teams$ | async as teams">
 
     <div class="d-flex" *ngIf="teams.state == loadingState.Loading">
         <span class="spinner-border m-auto"></span>

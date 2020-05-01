@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AppState } from '@core/root-store/app.state';
-import { selectFilterByEmployee, selectTeams } from '@core/root-store/task-schedule-store/task-schedule.selectors';
+import {
+  selectFilterByEmployee,
+  selectTeams,
+  selectTeamsAsList
+} from '@core/root-store/task-schedule-store/task-schedule.selectors';
 import { Store } from '@ngrx/store';
 import { filterByEmployeeChange } from '@core/root-store/task-schedule-store/task-schedule.actions';
 
@@ -11,7 +15,7 @@ import { filterByEmployeeChange } from '@core/root-store/task-schedule-store/tas
 })
 export class TeamFiltersComponent {
 
-  teams$ = this.store.select(selectTeams);
+  teams$ = this.store.select(selectTeamsAsList);
   filterByEmployee$ = this.store.select(selectFilterByEmployee);
 
   constructor(private store: Store<AppState>) { }

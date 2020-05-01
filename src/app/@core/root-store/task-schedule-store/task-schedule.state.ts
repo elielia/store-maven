@@ -1,6 +1,17 @@
 import { Team } from '@core/model/team';
 import { LoadingState, StatedData } from '@core/model/generics';
 
+const dateRangeLength = 3;
+
+// Mock today
+const today = new Date();
+today.setHours(0,0,0,0,);
+
+// Mock days in @dateRangeLength days
+const lastDate = new Date();
+lastDate.setDate(lastDate.getDate() + dateRangeLength);
+lastDate.setHours(0,0,0,0,);
+
 export interface TaskScheduleState {
   filterByEmployee: boolean;
   teams: StatedData<{[id: string]: Team}>;
@@ -14,6 +25,6 @@ export const initialTaskScheduleState: TaskScheduleState = {
     data: null,
     state: LoadingState.NotLoaded
   },
-  startDate: new Date('24/05/2020'),
-  endDate: new Date('29/05/2020'),
+  startDate: today,
+  endDate: lastDate
 }

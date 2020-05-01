@@ -3,14 +3,20 @@ import { createSelector } from '@ngrx/store';
 import { TaskScheduleState } from '@core/root-store/task-schedule-store/task-schedule.state';
 import { LoadingState } from '@core/model/generics';
 import { Team } from '@core/model/team';
+import { Utils } from '@core/utils';
 
 const selectTaskScheduler = (state: AppState) => state.taskScheduler;
 
 export const selectTeams = createSelector(
   selectTaskScheduler,
+  (state: TaskScheduleState) => state.teams
+);
+
+export const selectTeamsAsList = createSelector(
+  selectTaskScheduler,
   (state: TaskScheduleState) => ({
     ...state.teams,
-    data: state.teams.data ? Object.values(state.teams.data) : []
+    data: state.teams.data ? Object.values(state.teams.data) : null
   })
 );
 
@@ -32,10 +38,7 @@ export const selectEndDate = createSelector(
 export const selectDateRange = createSelector(
   selectStartDate,
   selectEndDate,
-  (startDate: Date, endDate: Date) => {
-    // Dates logic if needed
-    return {start: startDate, end: endDate}
-  }
+  (startDate: Date, endDate: Date) => Utils.getDatesBetween(startDate, endDate)
 );
 
 export const selectDisplayedMembers = createSelector(
@@ -44,7 +47,7 @@ export const selectDisplayedMembers = createSelector(
   (teams, filteredByEmployee) => {
 
     if (teams.state !== LoadingState.Loaded) {
-      return [];
+      return null;
     }
 
     return Object.values(teams.data)

@@ -1,0 +1,17 @@
+table {
+  width: 100%;
+  table-layout: fixed;
+
+  thead {
+    background: #efefef;
+
+  }
+
+  td, th {
+    padding: 1rem;
+  }
+
+  .narrow{
+    width: 30px;
+  }
+}

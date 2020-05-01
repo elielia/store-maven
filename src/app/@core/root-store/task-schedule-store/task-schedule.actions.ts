@@ -1,5 +1,6 @@
 import { createAction, props, union } from '@ngrx/store';
 import { Team } from '@core/model/team';
+import { TaskList } from '@core/model/member';
 
 export const loadTeamsRequest = createAction(
   '[Task Schedule Component] Load Teams request',
@@ -29,13 +30,25 @@ export const memberFilterChange = createAction(
   props<{ teamId: string, memberId: string, value: boolean; }>()
 );
 
+export const loadTasksForTeamMembersRequest = createAction(
+  'Load Tasks for Team Members',
+  props<{ teamId: string, membersIds: string[] }>()
+);
+
+export const loadTasksForTeamMembersSuccess = createAction(
+  'Load Tasks for Team Members success',
+  props<{ teamId: string, taskList: { [memberId: string]: TaskList} }>()
+);
+
 const all = union({
   loadTeamsRequest,
   loadTeamsSuccess,
   loadTeamsFailed,
   filterByEmployeeChange,
   teamFilterChange,
-  memberFilterChange
+  memberFilterChange,
+  loadTasksForTeamMembersRequest,
+  loadTasksForTeamMembersSuccess
 });
 
 export type TaskScheduleActionTypes = typeof all;

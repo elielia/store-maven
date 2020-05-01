@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import {
   selectDateRange, selectDisplayedMembers,
   selectFilterByEmployee,
-  selectTeams
+  selectTeams, selectTeamsAsList
 } from '@core/root-store/task-schedule-store/task-schedule.selectors';
 import { filterByEmployeeChange, memberFilterChange } from '@core/root-store/task-schedule-store/task-schedule.actions';
 
@@ -15,7 +15,7 @@ import { filterByEmployeeChange, memberFilterChange } from '@core/root-store/tas
 })
 export class TaskListComponent {
 
-  teams$ = this.store.select(selectTeams);
+  teams$ = this.store.select(selectTeamsAsList);
   displayedMembers$ = this.store.select(selectDisplayedMembers);
   dates$ = this.store.select(selectDateRange);
   filterByEmployee$ = this.store.select(selectFilterByEmployee);

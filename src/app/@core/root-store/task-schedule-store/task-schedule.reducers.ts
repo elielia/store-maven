@@ -1,7 +1,7 @@
 import { initialTaskScheduleState, TaskScheduleState } from '@core/root-store/task-schedule-store/task-schedule.state';
 import { Action, createReducer, on } from '@ngrx/store';
 import {
-  filterByEmployeeChange,
+  filterByEmployeeChange, loadTasksForTeamMembersSuccess,
   loadTeamsFailed,
   loadTeamsRequest,
   loadTeamsSuccess, memberFilterChange, teamFilterChange
@@ -89,6 +89,34 @@ const reducer = createReducer(
         ...state.teams.data[teamId].members,
         [memberId]: member
       }
+    }
+
+    return {
+      ...state,
+      teams: {
+        ...state.teams,
+        data: {
+          ...state.teams.data,
+          [teamId]: team
+        }
+      }
+    };
+  }),
+
+  on(loadTasksForTeamMembersSuccess, (state, {teamId, taskList}) => {
+
+    const teamMembers = {...state.teams.data[teamId].members};
+
+    Object.keys(taskList).forEach(memberId => {
+      teamMembers[memberId] = {
+        ...teamMembers[memberId],
+        tasks: taskList[memberId]
+      }
+    });
+
+    const team = {
+      ...state.teams.data[teamId],
+      members: teamMembers
     }
 
     return {
