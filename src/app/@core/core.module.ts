@@ -3,10 +3,18 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { ApiService } from '@core/services/api/api.service';
 
 @NgModule({
-  imports: [CommonModule, HttpClientModule, NgbModule, FormsModule],
-  providers: [],
+  imports: [
+    CommonModule,
+    HttpClientModule,
+    NgbModule,
+    FormsModule
+  ],
+  providers: [
+    ApiService
+  ],
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
