@@ -9,21 +9,20 @@ import { Member } from '@core/model/member';
   selector: 'app-filter',
   templateUrl: './filter.component.html',
   styleUrls: ['./filter.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FilterComponent {
-
   private _team: Team;
   private _state: 'UNCHECKED' | 'INDETERMINATE' | 'CHECKED';
 
-  constructor(private store: Store<AppState>) { }
+  constructor(private store: Store<AppState>) {}
 
   @Input()
   set team(value: Team) {
     this._team = value;
     const members: Member[] = Object.values(this.team.members);
-    const selectedMembers = members.filter(member => member.isSelected);
-    if (selectedMembers.length === 0){
+    const selectedMembers = members.filter((member) => member.isSelected);
+    if (selectedMembers.length === 0) {
       this._state = 'UNCHECKED';
     } else if (selectedMembers.length < members.length) {
       this._state = 'INDETERMINATE';
@@ -41,7 +40,6 @@ export class FilterComponent {
   }
 
   onTeamFilterChange(value: boolean) {
-    this.store.dispatch(teamFilterChange({teamId: this.team.id, value}));
+    this.store.dispatch(teamFilterChange({ teamId: this.team.id, value }));
   }
-
 }

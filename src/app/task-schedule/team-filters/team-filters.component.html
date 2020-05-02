@@ -1,11 +1,16 @@
 <div class="row" *ngIf="teams$ | async as teams">
-    <div class="col-3 d-flex align-items-center justify-content-center">
-        <div *ngIf="{value: filterByEmployee$ | async} as filterByEmployeeContext">
-            <input class="mr-2" type="checkbox" [ngModel]="filterByEmployeeContext.value" (ngModelChange)="onFilterByEmployeeChange($event)"/>
-            Filter by Employee
-        </div>
+  <div class="col-3 d-flex align-items-center justify-content-center">
+    <div *ngIf="{ value: filterByEmployee$ | async } as filterByEmployeeContext">
+      <input
+        class="mr-2"
+        type="checkbox"
+        [ngModel]="filterByEmployeeContext.value"
+        (ngModelChange)="onFilterByEmployeeChange($event)"
+      />
+      Filter by Employee
     </div>
-    <div class="col-9">
-        <app-filter *ngFor="let team of teams.data" [team]="team"></app-filter>
-    </div>
+  </div>
+  <div class="col-9">
+    <app-filter *ngFor="let team of teams.data" [team]="team"></app-filter>
+  </div>
 </div>

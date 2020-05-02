@@ -11,16 +11,14 @@ import { loadTeamsRequest } from '@core/root-store/task-schedule-store/task-sche
   templateUrl: './task-schedule.component.html',
   styleUrls: ['./task-schedule.component.scss'],
 })
-export class TaskScheduleComponent implements OnInit{
-
+export class TaskScheduleComponent implements OnInit {
   teams$ = this.store.select(selectTeams);
   loadingState = LoadingState;
 
-  constructor(private store: Store<AppState>) {
-  }
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit() {
-    this.teams$.pipe(take(1)).subscribe(teams => {
+    this.teams$.pipe(take(1)).subscribe((teams) => {
       if (teams.state === LoadingState.NotLoaded) {
         this.store.dispatch(loadTeamsRequest());
       }

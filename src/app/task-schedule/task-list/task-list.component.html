@@ -1,22 +1,33 @@
-<table *ngIf="{members: displayedMembers$ | async, showMemberCheckboxes: filterByEmployee$ | async, dates: dates$ | async} as tableContext">
-    <thead>
-        <th class="narrow"></th>
-        <th>Employee</th>
-        <th *ngFor="let date of tableContext.dates">
-            {{date | date : 'dd/MM'}}
-        </th>
-    </thead>
-    <tbody>
-        <tr *ngFor="let member of tableContext.members">
-            <td class="narrow">
-                <input *ngIf="tableContext.showMemberCheckboxes" type="checkbox" [ngModel]="member.isSelected" (ngModelChange)="onMemberFilterChange(member.teamId, member.id, $event)">
-            </td>
-            <td>{{member.name}}</td>
-            <ng-container *ngIf="member.isSelected && member.tasks">
-                <td *ngFor="let date of tableContext.dates">
-                    {{member.tasks[date] !== undefined ? (member.tasks[date].type) : '?'}}
-                </td>
-            </ng-container>
-        </tr>
-    </tbody>
+<table
+  *ngIf="{
+    members: displayedMembers$ | async,
+    showMemberCheckboxes: filterByEmployee$ | async,
+    dates: dates$ | async
+  } as tableContext"
+>
+  <thead>
+    <th class="narrow"></th>
+    <th>Employee</th>
+    <th *ngFor="let date of tableContext.dates">
+      {{ date | date: 'dd/MM' }}
+    </th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let member of tableContext.members">
+      <td class="narrow">
+        <input
+          *ngIf="tableContext.showMemberCheckboxes"
+          type="checkbox"
+          [ngModel]="member.isSelected"
+          (ngModelChange)="onMemberFilterChange(member.teamId, member.id, $event)"
+        />
+      </td>
+      <td>{{ member.name }}</td>
+      <ng-container *ngIf="member.isSelected && member.tasks">
+        <td *ngFor="let date of tableContext.dates">
+          {{ member.tasks[date] !== undefined ? member.tasks[date].type : '?' }}
+        </td>
+      </ng-container>
+    </tr>
+  </tbody>
 </table>

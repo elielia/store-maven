@@ -8,15 +8,8 @@ import { StoreModule } from '@ngrx/store';
 import { RootStoreModule } from '@core/root-store/root-store.module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    HttpClientModule,
-    NgbModule,
-    RootStoreModule
-  ],
-  providers: [
-    ApiService
-  ],
+  imports: [CommonModule, HttpClientModule, NgbModule, RootStoreModule],
+  providers: [ApiService],
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {

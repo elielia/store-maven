@@ -8,9 +8,8 @@ describe('TeamFilterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TeamFiltersComponent ]
-    })
-    .compileComponents();
+      declarations: [TeamFiltersComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

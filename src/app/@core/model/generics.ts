@@ -1,5 +1,8 @@
 export enum LoadingState {
-  NotLoaded, Loading, Loaded, Error
+  NotLoaded,
+  Loading,
+  Loaded,
+  Error,
 }
 
 export interface StatedData<T> {

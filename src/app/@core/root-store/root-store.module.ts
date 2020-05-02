@@ -6,8 +6,6 @@ import { environment } from '@env/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { TaskScheduleStoreModule } from '@core/root-store/task-schedule-store/task-schedule-store.module';
 
-
-
 @NgModule({
   declarations: [],
   imports: [
@@ -18,7 +16,7 @@ import { TaskScheduleStoreModule } from '@core/root-store/task-schedule-store/ta
       logOnly: environment.production, // Restrict extension to log-only mode
     }),
     EffectsModule.forRoot([]),
-    TaskScheduleStoreModule
-  ]
+    TaskScheduleStoreModule,
+  ],
 })
-export class RootStoreModule { }
+export class RootStoreModule {}

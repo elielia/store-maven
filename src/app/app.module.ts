@@ -9,13 +9,7 @@ import { TaskScheduleModule } from '@app/task-schedule/task-schedule.module';
 import { StoreModule } from '@ngrx/store';
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    CoreModule,
-    ShellModule,
-    TaskScheduleModule,
-    RouterModule.forRoot(appRoutes),
-  ],
+  imports: [BrowserModule, CoreModule, ShellModule, TaskScheduleModule, RouterModule.forRoot(appRoutes)],
   declarations: [AppComponent],
   providers: [],
   bootstrap: [AppComponent],

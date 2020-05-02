@@ -7,14 +7,7 @@ import { FilterComponent } from './team-filters/filter/filter.component';
 import { TaskListComponent } from './task-list/task-list.component';
 
 @NgModule({
-  declarations: [
-    TaskScheduleComponent,
-    TeamFiltersComponent,
-    FilterComponent,
-    TaskListComponent
-  ],
-  imports: [
-    SharedModule
-  ],
+  declarations: [TaskScheduleComponent, TeamFiltersComponent, FilterComponent, TaskListComponent],
+  imports: [SharedModule],
 })
 export class TaskScheduleModule {}
