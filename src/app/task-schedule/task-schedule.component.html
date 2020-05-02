@@ -1,12 +1,14 @@
-<div class="container" *ngIf="teams$ | async as teams">
-  <div class="d-flex" *ngIf="teams.state == loadingState.Loading">
-    <span class="spinner-border m-auto"></span>
-  </div>
+<div class="task-schedule-container">
+    <div class="container" *ngIf="teams$ | async as teams">
+        <div class="d-flex" *ngIf="teams.state == loadingState.Loading">
+            <span class="spinner-border m-auto"></span>
+        </div>
 
-  <ng-container *ngIf="teams.state == loadingState.Loaded">
-    <div class="team-filter-container shadow my-5">
-      <app-team-filter></app-team-filter>
+        <ng-container *ngIf="teams.state == loadingState.Loaded">
+            <div class="team-filter-container shadow mb-5">
+                <app-team-filter></app-team-filter>
+            </div>
+            <app-task-list></app-task-list>
+        </ng-container>
     </div>
-    <app-task-list></app-task-list>
-  </ng-container>
 </div>

@@ -16,7 +16,6 @@ import { TaskType } from '@core/model/task';
   styleUrls: ['./task-list.component.scss'],
 })
 export class TaskListComponent {
-  teams$ = this.store.select(selectTeamsAsList);
   displayedMembers$ = this.store.select(selectDisplayedMembers);
   dates$ = this.store.select(selectDateRange);
   filterByEmployee$ = this.store.select(selectFilterByEmployee);
