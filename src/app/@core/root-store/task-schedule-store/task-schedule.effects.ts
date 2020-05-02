@@ -8,14 +8,13 @@ import {
   loadTeamsSuccess,
   memberFilterChange,
   TaskScheduleActionTypes,
-  teamFilterChange,
+  teamFilterChange
 } from '@core/root-store/task-schedule-store/task-schedule.actions';
-import { catchError, filter, map, switchMap, take, withLatestFrom } from 'rxjs/operators';
+import { filter, map, switchMap, withLatestFrom } from 'rxjs/operators';
 import {
-  selectDateRange,
   selectEndDate,
   selectStartDate,
-  selectTeams,
+  selectTeams
 } from '@core/root-store/task-schedule-store/task-schedule.selectors';
 import { AppState } from '@core/root-store/app.state';
 import { Store } from '@ngrx/store';

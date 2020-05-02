@@ -7,7 +7,7 @@ import {
   loadTeamsRequest,
   loadTeamsSuccess,
   memberFilterChange,
-  teamFilterChange,
+  teamFilterChange
 } from '@core/root-store/task-schedule-store/task-schedule.actions';
 import { LoadingState } from '@core/model/generics';
 import { Member } from '@core/model/member';

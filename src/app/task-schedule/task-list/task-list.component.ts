@@ -28,18 +28,17 @@ export class TaskListComponent {
   }
 
   paintTaskCell(taskType: string) {
-
     switch (taskType) {
       case TaskType[TaskType.DEVELOP]:
-        return '#ccffcc'
+        return '#ccffcc';
       case TaskType[TaskType.SLEEP]:
-        return '#ffcccc'
+        return '#ffcccc';
       case TaskType[TaskType.EAT]:
-        return '#ccccff'
+        return '#ccccff';
       case TaskType[TaskType.QA]:
-        return '#ffffcc'
+        return '#ffffcc';
       default:
-        return 'grey'
+        return 'grey';
     }
   }
 }

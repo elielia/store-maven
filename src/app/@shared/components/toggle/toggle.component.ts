@@ -1,11 +1,11 @@
-import {Component, EventEmitter, forwardRef, HostListener, Input, Output} from '@angular/core';
-import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
+import { Component, EventEmitter, forwardRef, HostListener, Input, Output } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 const UI_SWITCH_CONTROL_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
   /* tslint:disable-next-line: no-use-before-declare */
   useExisting: forwardRef(() => ToggleComponent),
-  multi: true
+  multi: true,
 };
 
 @Component({
@@ -39,7 +39,7 @@ const UI_SWITCH_CONTROL_VALUE_ACCESSOR: any = {
     </span>
   `,
   styles: [
-      `
+    `
       .switch {
         background: #f00;
         border: 1px solid #dfdfdf;
@@ -171,12 +171,11 @@ const UI_SWITCH_CONTROL_VALUE_ACCESSOR: any = {
       .switch.checked .on {
         opacity: 1;
       }
-    `
+    `,
   ],
-  providers: [UI_SWITCH_CONTROL_VALUE_ACCESSOR]
+  providers: [UI_SWITCH_CONTROL_VALUE_ACCESSOR],
 })
 export class ToggleComponent implements ControlValueAccessor {
-
   /* tslint:disable member-ordering*/
 
   get checked() {
@@ -196,14 +195,10 @@ export class ToggleComponent implements ControlValueAccessor {
   }
 
   @Input() toggleOnClick = true;
-  private onTouchedCallback = (v: any) => {
-
-  }
+  private onTouchedCallback = (v: any) => {};
 
   /* tslint:disable adjacent-overload-signatures */
-  private onChangeCallback = (v: any) => {
-
-  }
+  private onChangeCallback = (v: any) => {};
 
   @Input() size = 'medium';
   // tslint:disable-next-line:no-output-native

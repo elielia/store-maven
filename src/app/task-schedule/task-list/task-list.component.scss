@@ -2,24 +2,24 @@ table {
   width: 100%;
   table-layout: fixed;
 
+  td,
+  th {
+    padding: 0.5rem 1rem;
+    text-align: center;
+  }
+
   thead th {
     background: #5f5f5f;
     color: white;
   }
 
-  td,
-  th {
-    padding: .5rem 1rem;
-    text-align: center;
-  }
-
-  .name-cell{
+  .name-cell {
     background: #eaeaea;
     color: #424242;
-    font-weight: bold
+    font-weight: bold;
   }
 
-  .member-selection-checkbox{
+  .member-selection-checkbox {
     position: absolute;
     left: 0;
     top: 50%;

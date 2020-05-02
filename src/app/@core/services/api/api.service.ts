@@ -9,7 +9,8 @@ import { Utils } from '@core/utils';
 @Injectable()
 export class ApiService {
   private numOfTeams = 10;
-  private numOfMembers = 6;
+  private minNumOfMembers = 1;
+  private maxNumOfMembers = 10;
 
   constructor() {}
 
@@ -25,7 +26,9 @@ export class ApiService {
         members: {},
       };
 
-      for (let j = 0; j < this.numOfMembers; j++) {
+      const numOfMembers = Utils.randomIntFromInterval(this.minNumOfMembers, this.maxNumOfMembers);
+
+      for (let j = 0; j < numOfMembers; j++) {
         const member: Member = {
           id: `team-${i}-member-${j}`,
           name: `team-${i}-member-${j}`,

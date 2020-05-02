@@ -1,13 +1,14 @@
 <div class="row" *ngIf="teams$ | async as teams">
   <div class="col-3 d-flex align-items-center justify-content-center">
-      <div class="text-center" *ngIf="{ value: filterByEmployee$ | async } as filterByEmployeeContext">
-          <div class="font-weight-bold mb-2">Filter by Employee</div>
-          <app-toggle
-              class="m-auto"
-              [ngModel]="filterByEmployeeContext.value"
-              (ngModelChange)="onFilterByEmployeeChange($event)">
-          </app-toggle>
-      </div>
+    <div class="text-center" *ngIf="{ value: filterByEmployee$ | async } as filterByEmployeeContext">
+      <div class="font-weight-bold mb-2">Filter by Employee</div>
+      <app-toggle
+        class="m-auto"
+        [ngModel]="filterByEmployeeContext.value"
+        (ngModelChange)="onFilterByEmployeeChange($event)"
+      >
+      </app-toggle>
+    </div>
   </div>
   <div class="col-9">
     <app-filter *ngFor="let team of teams.data" [team]="team"></app-filter>

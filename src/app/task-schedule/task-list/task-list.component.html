@@ -1,42 +1,50 @@
-<ng-container *ngIf="{
+<ng-container
+  *ngIf="{
     members: displayedMembers$ | async,
     showMemberCheckboxes: filterByEmployee$ | async,
     dates: dates$ | async
-    } as tableContext">
-
-    <table>
-        <thead>
-        <th class="border-radius-top-left">Employee</th>
-        <th *ngFor="let date of tableContext.dates; index as i" [ngClass]="{ 'border-radius-top-right' : i == tableContext.dates.length - 1 }">
-            {{ date | date: 'dd/MM' }}
-        </th>
-        </thead>
-        <tbody>
-        <tr *ngIf="tableContext.members.length === 0">
-            <td class="text-center text-black-50" colspan="5">
-                No selected members
-            </td>
-        </tr>
-        <tr *ngFor="let member of tableContext.members">
-            <td class="name-cell text-left position-relative">
-                <input
-                    class="member-selection-checkbox"
-                    *ngIf="tableContext.showMemberCheckboxes"
-                    type="checkbox"
-                    [ngModel]="member.isSelected"
-                    (ngModelChange)="onMemberFilterChange(member.teamId, member.id, $event)"
-                />
-                <i class="fas fa-user mr-2"></i>
-                {{ member.name }}
-            </td>
-            <ng-container *ngIf="member.isSelected && member.tasks">
-                <td *ngFor="let date of tableContext.dates" [ngStyle]="{'background' : member.tasks[date] !== undefined ? paintTaskCell(member.tasks[date].type) : '#fefefe'}">
-                    <span *ngIf="member.tasks[date] !== undefined">{{member.tasks[date].type}}</span>
-                    <i *ngIf="member.tasks[date] == undefined" class="far fa-question-circle"></i>
-                </td>
-            </ng-container>
-        </tr>
-        </tbody>
-    </table>
-
+  } as tableContext"
+>
+  <table>
+    <thead>
+      <th class="border-radius-top-left">Employee</th>
+      <th
+        *ngFor="let date of tableContext.dates; index as i"
+        [ngClass]="{ 'border-radius-top-right': i == tableContext.dates.length - 1 }"
+      >
+        {{ date | date: 'dd/MM' }}
+      </th>
+    </thead>
+    <tbody>
+      <tr *ngIf="tableContext.members.length === 0">
+        <td class="text-center text-black-50" colspan="5">
+          No selected members
+        </td>
+      </tr>
+      <tr *ngFor="let member of tableContext.members">
+        <td class="name-cell text-left position-relative">
+          <input
+            class="member-selection-checkbox"
+            *ngIf="tableContext.showMemberCheckboxes"
+            type="checkbox"
+            [ngModel]="member.isSelected"
+            (ngModelChange)="onMemberFilterChange(member.teamId, member.id, $event)"
+          />
+          <i class="fas fa-user mr-2"></i>
+          {{ member.name }}
+        </td>
+        <ng-container *ngIf="member.isSelected && member.tasks">
+          <td
+            *ngFor="let date of tableContext.dates"
+            [ngStyle]="{
+              background: member.tasks[date] !== undefined ? paintTaskCell(member.tasks[date].type) : '#fefefe'
+            }"
+          >
+            <span *ngIf="member.tasks[date] !== undefined">{{ member.tasks[date].type }}</span>
+            <i *ngIf="member.tasks[date] == undefined" class="far fa-question-circle"></i>
+          </td>
+        </ng-container>
+      </tr>
+    </tbody>
+  </table>
 </ng-container>

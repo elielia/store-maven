@@ -6,7 +6,6 @@ import { appRoutes } from '@app/routes';
 import { ShellModule } from '@app/shell/shell.module';
 import { CoreModule } from '@core/core.module';
 import { TaskScheduleModule } from '@app/task-schedule/task-schedule.module';
-import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   imports: [BrowserModule, CoreModule, ShellModule, TaskScheduleModule, RouterModule.forRoot(appRoutes)],

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Team } from '@core/model/team';
 import { AppState } from '@core/root-store/app.state';
 import { Store } from '@ngrx/store';

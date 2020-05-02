@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { TaskScheduleComponent } from '@app/task-schedule/task-schedule.component';
 import { SharedModule } from '@shared';
 import { TeamFiltersComponent } from './team-filters/team-filters.component';
