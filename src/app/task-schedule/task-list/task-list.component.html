@@ -24,7 +24,7 @@
       </td>
       <td>{{ member.name }}</td>
       <ng-container *ngIf="member.isSelected && member.tasks">
-        <td *ngFor="let date of tableContext.dates">
+        <td *ngFor="let date of tableContext.dates" [ngStyle]="{'background' : member.tasks[date] !== undefined ? paintTaskCell(member.tasks[date].type) : '#efefef'}">
           {{ member.tasks[date] !== undefined ? member.tasks[date].type : '?' }}
         </td>
       </ng-container>

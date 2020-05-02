@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AppState } from '@core/root-store/app.state';
 import { Store } from '@ngrx/store';
 import {
   selectDateRange,
   selectDisplayedMembers,
   selectFilterByEmployee,
-  selectTeams,
-  selectTeamsAsList,
+  selectTeamsAsList
 } from '@core/root-store/task-schedule-store/task-schedule.selectors';
-import { filterByEmployeeChange, memberFilterChange } from '@core/root-store/task-schedule-store/task-schedule.actions';
+import { memberFilterChange } from '@core/root-store/task-schedule-store/task-schedule.actions';
+import { TaskType } from '@core/model/task';
 
 @Component({
   selector: 'app-task-list',
@@ -25,5 +25,21 @@ export class TaskListComponent {
 
   onMemberFilterChange(teamId: string, memberId: string, value: boolean) {
     this.store.dispatch(memberFilterChange({ teamId, memberId, value }));
+  }
+
+  paintTaskCell(taskType: string) {
+
+    switch (taskType) {
+      case TaskType[TaskType.DEVELOP]:
+        return '#D2D1FF'
+      case TaskType[TaskType.SLEEP]:
+        return '#B8FFD4'
+      case TaskType[TaskType.EAT]:
+        return '#FFA49E'
+      case TaskType[TaskType.QA]:
+        return '#FFF0AB'
+      default:
+        return 'grey'
+    }
   }
 }
