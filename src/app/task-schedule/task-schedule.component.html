@@ -4,7 +4,9 @@
   </div>
 
   <ng-container *ngIf="teams.state == loadingState.Loaded">
-    <app-team-filter class="d-block shadow my-5" style="background: #f9f9f9"></app-team-filter>
+    <div class="d-block shadow my-5" style="background: #f9f9f9">
+      <app-team-filter></app-team-filter>
+    </div>
     <app-task-list></app-task-list>
   </ng-container>
 </div>

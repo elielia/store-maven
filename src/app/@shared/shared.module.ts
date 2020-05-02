@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 
 import { LoaderComponent } from './components/loader/loader.component';
 import { FormsModule } from '@angular/forms';
+import { ToggleComponent } from '@shared/components/toggle/toggle.component';
 
 @NgModule({
   imports: [CommonModule],
-  declarations: [LoaderComponent],
-  exports: [CommonModule, LoaderComponent, FormsModule],
+  declarations: [LoaderComponent, ToggleComponent],
+  exports: [CommonModule, LoaderComponent, FormsModule, ToggleComponent],
 })
 export class SharedModule {}
