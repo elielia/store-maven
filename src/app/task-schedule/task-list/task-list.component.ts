@@ -31,13 +31,13 @@ export class TaskListComponent {
 
     switch (taskType) {
       case TaskType[TaskType.DEVELOP]:
-        return '#D2D1FF'
+        return '#ccffcc'
       case TaskType[TaskType.SLEEP]:
-        return '#B8FFD4'
+        return '#ffcccc'
       case TaskType[TaskType.EAT]:
-        return '#FFA49E'
+        return '#ccccff'
       case TaskType[TaskType.QA]:
-        return '#FFF0AB'
+        return '#ffffcc'
       default:
         return 'grey'
     }

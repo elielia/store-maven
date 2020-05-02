@@ -1,7 +1,4 @@
-/*
- * Entry point of global application style.
- * Component-specific style should not go here and be included directly as part of the components.
- */
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap");
 
 // Theme variables, must be included before the libraries to allow overriding defaults
 @import "theme/theme-variables";
@@ -9,5 +6,22 @@
 // 3rd party libraries
 @import "~bootstrap/scss/bootstrap";
 
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "~@fortawesome/fontawesome-free/scss/brands.scss";
+@import "~@fortawesome/fontawesome-free/scss/regular.scss";
+@import "~@fortawesome/fontawesome-free/scss/solid.scss";
+
+
+body {
+  font-family: "Source Sans Pro", sans-serif;
+}
 // Theme customization
 @import "theme/theme";
+
+.border-radius-top-left {
+  border-top-left-radius: 5px;
+}
+
+.border-radius-top-right {
+  border-top-right-radius: 5px;
+}
